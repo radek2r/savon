@@ -300,7 +300,8 @@ module Savon
 
     def add_attachment_to_multipart_message(multipart_message, attachment, identifier)
       multipart_message.add_file attachment.clone
-      multipart_message.parts.last.content_id = multipart_message.parts.last.content_location = identifier.to_s
+      multipart_message.parts.last.content_id = "<#{identifier}>"
+      multipart_message.parts.last.content_location = identifier.to_s
     end
   end
 end
